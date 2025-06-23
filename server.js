@@ -6,18 +6,17 @@ async function getRequest() {
     //Fetch request using Bear token
     const url = 'https://api.themoviedb.org/3/movie/11';
     try {
-        const response = await fetch(url, {
+        const options = {
             method: 'GET',
             headers: {
-                "AUTHORIZATION": token,
-            },
-
-        });
-        if (!response.ok) {
-            throw new Error("Could not fetch resource!");
+                accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            }
         }
-        const data = await response.json;
-        console.log(data)
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(err => console.error(err));
     }
     catch (error) {
         console.error(error);
