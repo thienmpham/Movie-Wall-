@@ -5,7 +5,7 @@ import 'dotenv/config';
 const token = process.env.ACCESS_TOKEN;
 async function getRequest() {
     //Fetch request using Bear token
-    const url = 'https://api.themoviedb.org/3/authentication';
+    const url = 'https://api.themoviedb.org/3/movie/11?append_to_response=videos';
 
     const options = {
         method: 'GET',
