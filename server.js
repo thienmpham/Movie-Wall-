@@ -3,9 +3,9 @@ import fetch from 'node-fetch';
 import 'dotenv/config';
 
 const token = process.env.ACCESS_TOKEN;
-async function getRequest() {
+async function getTrending() {
     //Fetch request using Bear token
-    const url = 'https://api.themoviedb.org/3/movie/11?append_to_response=videos';
+    const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 
     const options = {
         method: 'GET',
@@ -23,4 +23,4 @@ async function getRequest() {
 
 
 }
-getRequest();
+getTrending();
