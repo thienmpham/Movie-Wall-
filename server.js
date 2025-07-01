@@ -15,11 +15,13 @@ async function getTrending() {
         }
     };
 
-    fetch(url, options)
-        .then(res => res.json())
-        .then(json => console.log(json))
-        .catch(err => console.error(err));
+    // fetch(url, options)
+    //     .then(res => res.json())
+    //     .then(json => console.log(json))
+    //     .catch(err => console.error(err));
 
+    let results = await fetch(url, options)
+    console.log(results)
 
 
 }
