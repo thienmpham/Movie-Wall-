@@ -23,6 +23,7 @@ async function getTrending() {
 
     // console.log(results)
     console.log(data.results[0].title)
-    // use response body method to parse the data 
+
+    // create endpoints to transfer data from backend to frontend
 }
 getTrending();
