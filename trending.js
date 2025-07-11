@@ -1,6 +1,8 @@
 // require('dotenv').config();
 import fetch from 'node-fetch';
 import 'dotenv/config';
+import http from 'node:http';
+
 
 const token = process.env.ACCESS_TOKEN;
 async function getTrending() {
