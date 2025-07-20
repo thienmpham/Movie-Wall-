@@ -1,18 +1,31 @@
 // const http = require('http'); 
-import http from 'node:http';
+import http from 'http';
 import 'dotenv/config';
-
+import * as fs from 'fs';
+import { getTrending } from 'trending.js';
 function createServer() {
 
 
     const server = http.createServer((req, res) => {
         //Routing
         if (req.url === '/trending') {
-            res.write(200, { 'Content-Type': 'text/plain' });
-            res.end('Hello,world!');
+            // res.setHeader('Content-Type', 'text/javascript');
+            try {
+                // const jsData = fs.readFileSync('trending.js');
+
+                res.write(getTrending())
+                res.end()
+            } catch (error) {
+                res.statusCode = 404;
+                res.write('Error: Bad Request');
+                console.log(error)
+                res.end();
+            }
+
         } else {
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
-            res.end('Page not found');
+            res.setHeader('Content-Type', 'text/plain');
+            res.write('Hello World');
+            res.end();
         }
     });
 
