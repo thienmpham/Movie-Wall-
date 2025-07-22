@@ -23,9 +23,11 @@ export async function getTrending() {
 
 
 
+
+
     // console.log(results)
     console.log(data.results[0].title)
-    return data;
 
+    return data;
 }
 

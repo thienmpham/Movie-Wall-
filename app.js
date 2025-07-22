@@ -2,10 +2,14 @@
 import http from 'http';
 import 'dotenv/config';
 import * as fs from 'fs';
-import { getTrending } from 'trending.js';
+import { getTrending } from './trending.js';
+
+
+getTrending.then(function (data) {
+    console.log('Data:', data);
+})
+
 function createServer() {
-
-
     const server = http.createServer((req, res) => {
         //Routing
         if (req.url === '/trending') {
