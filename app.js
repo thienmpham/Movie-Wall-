@@ -2,22 +2,24 @@
 import http from 'http';
 import 'dotenv/config';
 import * as fs from 'fs';
-import { getTrending } from './trending.js';
+import { trendingData } from './trending.js';
 
 
-getTrending.then(function (data) {
-    console.log('Data:', data);
-})
+// trendingData.then(function (data) {
+//     console.log('Data:', data);
+// })
 
 function createServer() {
     const server = http.createServer((req, res) => {
         //Routing
         if (req.url === '/trending') {
-            // res.setHeader('Content-Type', 'text/javascript');
+            res.setHeader('Content-Type', 'text/plain');
             try {
                 // const jsData = fs.readFileSync('trending.js');
+                trendingData.then(function (data) {
+                    res.write('huuuu')
+                })
 
-                res.write(getTrending())
                 res.end()
             } catch (error) {
                 res.statusCode = 404;

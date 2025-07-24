@@ -5,7 +5,7 @@ import http from 'node:http';
 
 
 const token = process.env.ACCESS_TOKEN;
-export async function getTrending() {
+async function getTrending() {
     //Fetch request using Bear token
     const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 
@@ -25,9 +25,20 @@ export async function getTrending() {
 
 
 
-    // console.log(results)
+    // console.log(data)
     console.log(data.results[0].title)
 
+    sortMovieName(data)
     return data;
 }
 
+export const trendingData = getTrending();
+
+
+// Organize trending data 
+function sortMovieName(data) {
+    //loop through object 
+    for (let i = 0; i <= 10; i++) {
+        console.log(data.results[i].title);
+    }
+}
