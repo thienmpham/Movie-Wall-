@@ -38,7 +38,9 @@ export const trendingData = getTrending();
 // Organize trending data 
 function sortMovieName(data) {
     //loop through object 
-    for (let i = 0; i <= 10; i++) {
+    for (let i = 0; i < data.results.length - 1; i++) {
         console.log(data.results[i].title);
+
     }
+
 }
